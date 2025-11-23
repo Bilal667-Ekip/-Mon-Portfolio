@@ -1,82 +1,92 @@
-Salut ! 👋 Je suis [Ton Prénom Nom]
+<div align="center">
+  <a href="">
+    <img src="https://img.shields.io/badge/VOIR_MON_PORTFOLIO_EN_LIGNE-CLIQUEZ_ICI-64ffda?style=for-the-badge&logo=google-chrome&logoColor=black&labelColor=102a43" alt="Voir le site" height="50" />
+  </a>
+  <br/>
+  <p>👆 <i>Cliquez ci-dessus pour accéder à la version interactive de mon CV</i> 👆</p>
+</div>
 
-<p align="left">
-<a href="https://www.google.com/search?q=https://www.linkedin.com/in/[Ton-Profil-LinkedIn]" target="_blank">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/LinkedIn-0A66C2%3Fstyle%3Dfor-the-badge%26logo%3Dlinkedin%26logoColor%3Dwhite" alt="LinkedIn" />
-</a>
-<a href="mailto:[Ton-Email@gmail.com]">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Email-D14836%3Fstyle%3Dfor-the-badge%26logo%3Dgmail%26logoColor%3Dwhite" alt="Email" />
-</a>
-</p>
+<div align="center">
 
-Étudiant en 3ème année de Génie Télécoms et TIC à l'UCAO (Bénin). Je suis passionné par les infrastructures réseau et la manière de les protéger.
+  <!-- Section Titre et Accroche Dynamique -->
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=30&pause=1000&color=336699&center=true&vCenter=true&width=600&lines=Futur+Ing%C3%A9nieur+R%C3%A9seau+%26+S%C3%A9curit%C3%A9;Passionn%C3%A9+par+la+Cybers%C3%A9curit%C3%A9+et+le+Cloud;L3+G%C3%A9nie+T%C3%A9l%C3%A9coms+%40+UCAO" alt="Typing SVG" />
 
-Mon cursus m'a donné une solide base théorique, et je suis déterminé à la transformer en expertise pratique. Je suis proactif, curieux, et je crois en l'apprentissage par le projet.
+  <br/>
 
-🎯 Mon Objectif : Ingénieur Réseau et Sécurité
+  <!-- Badges Réseaux Sociaux & Contact -->
+  <p>
+    <a href="LIEN_VERS_TON_LINKEDIN" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-Connectez_vous-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    </a>
+    <a href="mailto:TON_EMAIL@GMAIL.COM">
+      <img src="https://img.shields.io/badge/Email-Contactez_moi-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+    </a>
+  </p>
+</div>
 
-Mon projet professionnel est de devenir Ingénieur Réseau et Sécurité, avec une spécialisation future en Sécurité Cloud (AdminSec Cloud). Je suis activement à la recherche d'une formation d'excellence (Licence, Master ou cycle Ingénieur) pour atteindre cet objectif.
+---
 
-🎓 Formation
+### 🚀 À propos de moi : La double compétence
 
-Licence 3 (en cours) - Génie Télécoms et TIC
+Actuellement en **Licence 3 Génie Télécoms & TIC à l'UCAO**, je construis mon profil d'ingénieur sur une conviction : **la théorie des télécommunications doit s'allier à la pratique du développement logiciel.**
 
-Université Catholique de l’Afrique de l’Ouest (UCAO), Bénin
+Mon parcours académique m'apporte la rigueur scientifique et la compréhension des infrastructures physiques. Mon travail personnel sur GitHub vise à maîtriser les couches logiques et applicatives.
 
-Baccalauréat Scientifique (Série D)
+*   🎯 **Objectif :** Intégrer une Grande École d'Ingénieurs en France (Cycle Ingénieur / Master) pour me spécialiser en Cybersécurité et Cloud Computing.
+*   🧠 **Philosophie :** *Learning by doing*. Je comble le fossé entre les concepts théoriques (TCP/IP, Signal) et leur implémentation réelle (Scripting, Configuration routeurs).
+*   🛡️ **Focus actuel :** Préparation active de la certification **Cisco CCNA**.
 
-[Nom de ton Lycée, Ville]
+---
 
-🚀 Certifications & Compétences Clés
+### 🛠️ Arsenal Technique
 
-Ma discipline et ma persévérance me poussent à me former en continu sur les standards de l'industrie.
+Mon profil technique est hybride, mêlant administration réseau et développement web backend.
 
-Certifications (en préparation)
+#### 📡 Infrastructure & Réseaux (Mon Cœur de Métier)
+![Cisco](https://img.shields.io/badge/Cisco-IOS-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
+![Packet Tracer](https://img.shields.io/badge/Cisco-Packet_Tracer-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
+![Wireshark](https://img.shields.io/badge/Wireshark-Analyse_Trafic-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-Administration-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Windows Server](https://img.shields.io/badge/Windows-Server-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
-Compétences Techniques
+#### 💻 Développement & Scripting (Mes Outils d'Automatisation)
+![HTML5](https://img.shields.io/badge/HTML5-Structure-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-Design-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-Dynamisme-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![PHP](https://img.shields.io/badge/PHP-Backend-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-Réseau : Routage & Commutation (Concepts Cisco), Modèle OSI, TCP/IP, VPN, DNS, DHCP
+---
 
-Sécurité : Concepts de Pare-feu, Analyse de trafic (Wireshark), Sécurité des SI
+### 🏆 Certification en cours
 
-Développement Web : [HTML5, CSS3, JavaScript]
+<div align="left">
+  <img src="https://img.shields.io/badge/CISCO-CCNA_200--301_(In_Progress)-success?style=flat-square&logo=cisco&logoColor=white" alt="CCNA Badge" height="35"/>
+  <br/>
+  <em>Acquisition de compétences avancées en routage, commutation, connectivité IP et services de sécurité.</em>
+</div>
 
-Backend & BDD : [PHP, Python, SQL/MySQL]
+---
 
-Système : Linux (Ubuntu), Windows Server
+### 📂 Projets d'Ingénierie (Featured Projects)
 
-💼 Mes Projets
+Voici comment je transforme mes connaissances théoriques en solutions concrètes.
 
-Voici quelques projets concrets qui démontrent mon "attrait pour le concret".
+| Projet | Type & Challenge | Stack Technique |
+| :--- | :--- | :--- |
+| **[🔐 Secure Enterprise Network](Lien_Vers_Repo_Reseau)** | **Architecture Réseau & Sécurité**<br>Conception d'une topologie d'entreprise complète. Mise en œuvre de VLANs, sécurisation des ports, et configuration d'ACLs pour restreindre l'accès aux données sensibles. Simulation réaliste de partage de fichiers. | ![Cisco](https://img.shields.io/badge/Cisco-Packet_Tracer-blue) <br> ![Security](https://img.shields.io/badge/Network-Security-red) |
+| **[📅 EventFlow Manager](Lien_Vers_Repo_Web)** | **Système d'Information Web**<br>Développement d'une solution Full-stack pour la gestion d'événements. Focus sur l'architecture de la base de données relationnelle (MCD/MLD) et la sécurité des requêtes backend. | ![PHP](https://img.shields.io/badge/PHP-Backend-777BB4) <br> ![MySQL](https://img.shields.io/badge/SQL-Database-4479A1) |
 
-1. Application Web de Gestion d'Événements
+---
 
-Description : Une plateforme web complète (conçue avec [techno ex: PHP/MySQL]) permettant aux utilisateurs de créer, promouvoir et gérer des événements.
+### 📊 Statistiques GitHub
 
-Technologies : HTML, CSS, JavaScript, PHP, MySQL
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=TON_USERNAME_ICI&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TON_USERNAME_ICI&layout=compact&theme=radical&hide_border=true" alt="Top Langs" />
+</div>
 
-Dépôt : [METS LE LIEN VERS LE DÉPÔT DU PROJET ICI]
-
-2. Système de Partage de Fichiers en Réseau d'Entreprise
-
-Description : Conception et simulation d'un service de partage de fichiers sécurisé pour un réseau d'entreprise.
-
-Technologies : [Ex: Packet Tracer], Concepts de routage (EIGRP/OSPF), Listes de contrôle d'accès (ACL)
-
-Dépôt : [METS LE LIEN VERS LE DÉPÔT DU PROJET ICI]
-
-3. [Nom d'un autre projet]
-
-Description : [Courte description]
-
-Technologies : [Techno 1], [Techno 2]
-
-Dépôt : [METS LE LIEN VERS LE DÉPÔT DU PROJET ICI]
-
-📫 Contactez-moi
-
-N'hésitez pas à me contacter pour discuter de technologie, de sécurité ou d'une éventuelle opportunité.
-
-LinkedIn : https://www.linkedin.com/in/Ton-Profil-LinkedIn
-
-Email : [Ton-Email@gmail.com]
+<div align="center">
+  <br/>
+  <em>"L'ingénieur de demain ne se contente pas de comprendre le réseau, il le programme."</em>
+</div>
