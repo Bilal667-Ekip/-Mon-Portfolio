@@ -1,1 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Bilal | Ingénieur Réseau & Sécurité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES & CONFIG --- */
+        :root {
+            --bg: #020c1b;
+            --bg-light: #0a192f;
+            --primary: #64ffda; /* Cyber Green */
+            --secondary: #00b4d8; /* Neon Blue */
+            --text-main: #ccd6f6;
+            --text-muted: #8892b0;
+            --glass: rgba(16, 33, 62, 0.7);
+            --glass-border: rgba(100, 255, 218, 0.1);
+            --font-head: 'Rajdhani', sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-code); /* Style Terminal par défaut */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- SCROLLBAR CUSTOM --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* --- MATRIX BACKGROUND --- */
+        #canvas-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+            background: radial-gradient(circle at center, #112240 0%, #020c1b 100%);
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        h1, h2, h3 { font-family: var(--font-head); text-transform: uppercase; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+        
+        .section-header h2::before {
+            content: '0' counter(section) '.';
+            color: var(--primary);
+            margin-right: 10px;
+            font-family: var(--font-code);
+            font-weight: normal;
+        }
+        
+        .section-header::after {
+            content: "";
+            display: block;
+            width: 300px;
+            height: 1px;
+            background: var(--text-muted);
+            margin-left: 20px;
+            opacity: 0.3;
+        }
+
+        body { counter-reset: section; }
+        section h2 { counter-increment: section; }
+
+        /* --- HERO --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 0;
+        }
+
+        .hero-intro { color: var(--primary); margin-bottom: 20px; font-size: 1.1rem; }
+        
+        .glitch-name {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--text-muted);
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.25rem 1.75rem;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover { background: rgba(100, 255, 218, 0.1); transform: translateY(-3px); }
+
+        /* --- ROADMAP (TIMELINE) --- */
+        .roadmap-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            top: 25px; left: 0; width: 100%; height: 2px;
+            background: var(--text-muted);
+            opacity: 0.2;
+            z-index: 0;
+            display: none; /* Hidden on mobile */
+        }
+
+        @media(min-width: 768px) { .roadmap-container::before { display: block; } }
+
+        .roadmap-step {
+            flex: 1;
+            min-width: 200px;
+            background: var(--glass);
+            padding: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            position: relative;
+            z-index: 1;
+            transition: 0.3s;
+        }
+        
+        .roadmap-step:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .step-icon {
+            width: 50px; height: 50px;
+            background: var(--bg-light);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .step-title { color: var(--primary); font-size: 1.1rem; margin-bottom: 5px; }
+        .step-desc { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- CERTIFICATIONS (Cards Distinctes) --- */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 5px;
+            border-left: 4px solid var(--text-muted);
+            transition: 0.3s;
+        }
+
+        .cert-card.valid { border-left-color: var(--primary); background: rgba(100, 255, 218, 0.05); }
+        .cert-card.prep { border-left-color: #ffbd2e; }
+
+        .cert-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .cert-status { font-size: 0.8rem; padding: 3px 8px; border-radius: 3px; }
+        
+        .status-valid { color: var(--bg); background: var(--primary); font-weight: bold; }
+        .status-prep { color: var(--bg); background: #ffbd2e; font-weight: bold; }
+
+        /* --- STACK TECHNIQUE --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .skill-category h3 { color: var(--text-main); margin-bottom: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; display: inline-block;}
+        
+        .tech-list { list-style: none; }
+        .tech-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: var(--text-muted);
+        }
+        .tech-list li::before {
+            content: "▹";
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* --- PROJETS --- */
+        .project-card {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+        
+        .project-card:hover { border-color: var(--secondary); box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7); }
+        
+        .project-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .folder { color: var(--secondary); font-size: 2.5rem; }
+        .project-links a { color: var(--text-main); margin-left: 15px; font-size: 1.2rem; }
+        .project-links a:hover { color: var(--secondary); }
+
+        .tech-stack { display: flex; gap: 15px; font-size: 0.8rem; font-family: var(--font-code); color: var(--text-muted); margin-top: 20px; }
+
+        /* --- CONTACT --- */
+        .contact-box {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .section-header::after { width: 100px; }
+            .hero-subtitle { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND ANIMÉ -->
+    <canvas id="canvas-container"></canvas>
+
+    <main class="container">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="visible">
+            <p class="hero-intro">Initialisation du profil...</p>
+            <h1 class="glitch-name">HOUNTONDJI <br>Stephen Bilal</h1>
+            <h2 class="hero-subtitle">Etudiant en Réseaux & Télécommunications.</h2>
+            <p class="hero-desc">
+                Je combine la rigueur des infrastructures informatiques avec l'agilité du Développement (Laravel/Java). 
+                Mon objectif : une cybersécurité orientée (Sécurité réseau, SOC, Cloud).
+            </p>
+            <div>
+                <a href="#projects" class="btn">Voir mes Projets</a>
+                <a href="#about" class="btn" style="border-color: var(--text-muted); color: var(--text-muted); margin-left: 15px;">Mon Parcours</a>
+            </div>
+        </section>
+
+        <!-- ABOUT & ROADMAP SECTION -->
+        <section id="about">
+            <div class="section-header">
+                <h2>Mon Parcours</h2>
+            </div>
+            <div style="display: grid; gap: 40px;">
+                <div style="color: var(--text-muted);">
+                    <p>
+                        Actuellement en 3ème année de Licence Génie Télécoms & TIC à l'UCAO, je construis un profil hybride. 
+                        Je ne me contente pas de configurer des routeurs ; je développe les applications qui tournent dessus.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Mon ambition est claire : devenir <span style="color: var(--primary)">AdminSEC Cloud</span> après avoir acquérir de l'expérience en tant que professionnel de l'ingénierie Réseaux et Sécurité.
+                    </p>
+                </div>
+
+                <!-- TIMELINE VISUELLE -->
+                <div class="roadmap-container">
+                    <div class="roadmap-step">
+                        <div class="step-icon">📡</div>
+                        <h4 class="step-title">Licence 3 (Actuel)</h4>
+                        <p class="step-desc">Génie Télécoms & TIC<br>UCAO Bénin<br><i>Focus: Infra & Dev</i></p>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="step-icon">🔒</div>
+                        <h4 class="step-title">Master / Ingénieur</h4>
+                        <p class="step-desc">Formation visée en France<br><i>Focus: Cyberdéfense & Architecture réseau et Sécurité</i></p>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="step-icon">☁️</div>
+                        <h4 class="step-title">Expertise Future</h4>
+                        <p class="step-desc">Ingénieur Réseau & Sécu<br>➜ AdminSEC Cloud<br>➜ GRC / SOC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications">
+            <div class="section-header">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certs-grid">
+                <!-- Certif VALIDÉE -->
+                <div class="cert-card valid">
+                    <div class="cert-header">
+                        <h3 style="color: var(--primary);">Google Cybersecurity</h3>
+                        <span class="cert-status status-valid">VALIDÉ ✅</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Analyse de risques, Python pour la sécu, SQL, IDS/IPS.</p>
+                </div>
+
+                <!-- Certifs EN COURS -->
+                <div class="cert-card prep">
+                    <div class="cert-header">
+                        <h3 style="color: #ccd6f6;">Cisco CCNA</h3>
+                        <span class="cert-status status-prep">EN COURS 🔄</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">200-301. Routage, Commutation, IPv6, Automatisation Réseau.</p>
+                </div>
+
+                <div class="cert-card prep">
+                    <div class="cert-header">
+                        <h3 style="color: #ccd6f6;">CompTIA Security+</h3>
+                        <span class="cert-status status-prep">EN COURS 🔄</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Fondamentaux de la cybersécurité opérationnelle.</p>
+                </div>
+
+                <div class="cert-card prep">
+                    <div class="cert-header">
+                        <h3 style="color: #ccd6f6;">CompTIA Network+</h3>
+                        <span class="cert-status status-prep">EN COURS 🔄</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Infrastructure réseau et dépannage avancé.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <div class="section-header">
+                <h2>Arsenal Technique</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>&lt;Dev & Mobile /&gt;</h3>
+                    <ul class="tech-list">
+                        <li><b>Laravel (PHP)</b> : Développement Backend robuste</li>
+                        <li><b>Java</b> : Développement Mobile Avec java et Android studio</li>
+                        <li><b>JavaScript (ES6+)</b> : Dynamisme Frontend</li>
+                        <li><b>SQL / MySQL</b> : Gestion de données complexes</li>
+                        <li><b>HTML5 & CSS3</b> : Interfaces modernes</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>{ Réseau & Sécu }</h3>
+                    <ul class="tech-list">
+                        <li><b>Packet Tracer</b> : Simulation architecture complexe</li>
+                        <li><b>Wireshark</b> : Analyse de trames & trafic réseau,analyse des log et rapports incidents</li>
+                        <li><b>Linux</b> : Administration système (Kali/Ubuntu)</li>
+                        <li><b>SOC / GRC</b> : Concepts de gouvernance et surveillance,Bonne connaissance des outils SIEM et des frameworks du NIST</li>
+                        <li><b>TCP/IP & OSI</b> : Maîtrise des couches protocolaires</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>Projets Phares</h2>
+            </div>
+
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="folder">📂</div>
+                    <div class="project-links">
+                        <a href="#" title="Voir le code">🔗</a>
+                    </div>
+                </div>
+                <h3 style="color: var(--text-main); margin-bottom: 10px;">App Gestion Événements</h3>
+                <p style="color: var(--text-muted);">
+                    Développement Fullstack d'une plateforme événementielle. Focus particulier sur la sécurité des données utilisateurs (hachage mots de passe, protection XSS/SQLi) et l'architecture MVC.
+                </p>
+                <div class="tech-stack">
+                    <span>Laravel</span>
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>Sécurité Web</span>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="folder">🛡️</div>
+                    <div class="project-links">
+                        <a href="#" title="Voir le code">🔗</a>
+                    </div>
+                </div>
+                <h3 style="color: var(--text-main); margin-bottom: 10px;">Système hiérarchique de partage de fichiers au sein d'un réseau d'entreprise</h3>
+                <p style="color: var(--text-muted);">
+                    Simulation du système de partage de fichiers au sein du réseau d'entreprise à travers la visualisation,la gestion des accès au dossiers et fichiers en fonction des droits utilisateurs et des départements de chaque employés.
+                </p>
+                <div class="tech-stack">
+                    <span>Virtualbox</span>
+                    <span>Ubuntu Linux</span>
+                    <span>Nano,Terminal</span>
+                    <span>Adresse IP, DHCP</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-box">
+            <p style="color: var(--primary); font-family: var(--font-code);">04. What's Next?</p>
+            <h2 style="font-size: 3rem; margin-bottom: 20px; color: var(--text-main);">Initialiser la Connexion</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 50px;">
+                Mon profil est taillé pour l'ingénierie. Je suis prêt à relever les défis de votre formation. Échangeons sur mon avenir au sein de votre école.
+            </p>
+            <a href="mailto:hountondjibilalemail@gmail.com" class="btn">Me Contacter</a>
+        </section>
+
+        <footer style="text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.8rem; margin-top: 50px;">
+            <p>Conçu & Développé par HOUNTONDJI Stephen Bilal.</p>
+        </footer>
+
+    </main>
+
+    <!-- SCRIPTS JS -->
+    <script>
+        // 1. MATRIX RAIN EFFECT (Optimisé)
+        const canvas = document.getElementById('canvas-container');
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(2, 12, 27, 0.05)'; // Trail effect
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Matrix Green (ou var(--primary) pour cyan)
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                // Couleur aléatoire pour effet "Cyber"
+                ctx.fillStyle = Math.random() > 0.95 ? '#FFF' : '#64ffda';
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 33);
+
+        // 2. SCROLL REVEAL (Apparition au défilement)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
