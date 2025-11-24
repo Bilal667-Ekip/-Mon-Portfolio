@@ -8,7 +8,7 @@
 ---
 
 <!-- BANNIÈRE CTA / PORTFOLIO -->
-<a href="https://[MON-PSEUDO].github.io/portfolio">
+<a href="https://bilal667-ekip.github.io/-Mon-Portfolio/">
   <img src="https://img.shields.io/badge/VISITEZ_MON_PORTFOLIO_INTERACTIF-CLIQUEZ_ICI-0a2472?style=for-the-badge&logo=github&logoColor=white&labelColor=000000" alt="Portfolio Interactif" height="50" />
 </a>
 
