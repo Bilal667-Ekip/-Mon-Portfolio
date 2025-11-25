@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de HOUNTONDJI Stephen Bilal - Ingénieur Réseau & Cybersécurité">
+    <title>Stephen Bilal | Ingénieur Réseau & Sécurité</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BACKGROUND ANIMÉ MATRIX -->
+    <canvas id="canvas-container"></canvas>
+
+    <!-- CURSEUR PERSONNALISÉ -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <main class="container">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="visible">
+            <p class="hero-intro" data-reveal="fade-up">Initialisation du profil...</p>
+            <h1 class="glitch-name" data-reveal="fade-up" data-reveal-delay="100">
+                HOUNTONDJI <br>Stephen Bilal
+            </h1>
+            <h2 class="hero-subtitle typer-container" data-reveal="fade-up" data-reveal-delay="200">
+                <span id="typer-text"></span>
+                <span class="typer-cursor">|</span>
+            </h2>
+            <p class="hero-desc" data-reveal="fade-up" data-reveal-delay="300">
+                Je combine la rigueur des infrastructures informatiques avec l'agilité du Développement (Laravel/Java). 
+                Mon objectif : une cybersécurité orientée (Sécurité réseau, SOC, Cloud).
+            </p>
+            <div data-reveal="fade-up" data-reveal-delay="400">
+                <a href="#projects" class="btn btn-primary">Voir mes Projets</a>
+                <a href="#about" class="btn btn-secondary">Mon Parcours</a>
+            </div>
+        </section>
+
+        <!-- ABOUT & ROADMAP SECTION -->
+        <section id="about">
+            <div class="section-header">
+                <h2>Mon Parcours</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-reveal="fade-right">
+                    <p>
+                        Actuellement en 3ème année de Licence Génie Télécoms & TIC à l'UCAO, je construis un profil hybride. 
+                        Je ne me contente pas de configurer des routeurs ; je développe les applications qui tournent dessus.
+                    </p>
+                    <p>
+                        Mon ambition est claire : devenir <span class="highlight">AdminSEC Cloud</span> après avoir acquérir de l'expérience en tant que professionnel de l'ingénierie Réseaux et Sécurité.
+                    </p>
+                </div>
+
+                <!-- TIMELINE VISUELLE -->
+                <div class="roadmap-container">
+                    <div class="roadmap-step" data-reveal="zoom-in" data-reveal-delay="100">
+                        <div class="step-icon">📡</div>
+                        <h4 class="step-title">Licence 3 (Actuel)</h4>
+                        <p class="step-desc">Génie Télécoms & TIC<br>UCAO Bénin<br><i>Focus: Infra & Dev</i></p>
+                    </div>
+                    <div class="roadmap-step" data-reveal="zoom-in" data-reveal-delay="200">
+                        <div class="step-icon">🔒</div>
+                        <h4 class="step-title">Master / Ingénieur</h4>
+                        <p class="step-desc">Formation visée en France<br><i>Focus: Cyberdéfense & Architecture réseau et Sécurité</i></p>
+                    </div>
+                    <div class="roadmap-step" data-reveal="zoom-in" data-reveal-delay="300">
+                        <div class="step-icon">☁️</div>
+                        <h4 class="step-title">Expertise Future</h4>
+                        <p class="step-desc">Ingénieur Réseau & Sécu<br>➜ AdminSEC Cloud<br>➜ GRC / SOC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications">
+            <div class="section-header">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card valid" data-reveal="slide-up" data-reveal-delay="100">
+                    <div class="cert-header">
+                        <h3>Google Cybersecurity</h3>
+                        <span class="cert-status status-valid">VALIDÉ ✅</span>
+                    </div>
+                    <p>Analyse de risques, Python pour la sécu, SQL, IDS/IPS.</p>
+                    <div class="cert-glow"></div>
+                </div>
+
+                <div class="cert-card prep" data-reveal="slide-up" data-reveal-delay="200">
+                    <div class="cert-header">
+                        <h3>Cisco CCNA</h3>
+                        <span class="cert-status status-prep">EN COURS 🔄</span>
+                    </div>
+                    <p>200-301. Routage, Commutation, IPv6, Automatisation Réseau.</p>
+                    <div class="cert-glow"></div>
+                </div>
+
+                <div class="cert-card prep" data-reveal="slide-up" data-reveal-delay="300">
+                    <div class="cert-header">
+                        <h3>CompTIA Security+</h3>
+                        <span class="cert-status status-prep">EN COURS 🔄</span>
+                    </div>
+                    <p>Fondamentaux de la cybersécurité opérationnelle.</p>
+                    <div class="cert-glow"></div>
+                </div>
+
+                <div class="cert-card prep" data-reveal="slide-up" data-reveal-delay="400">
+                    <div class="cert-header">
+                        <h3>CompTIA Network+</h3>
+                        <span class="cert-status status-prep">EN COURS 🔄</span>
+                    </div>
+                    <p>Infrastructure réseau et dépannage avancé.</p>
+                    <div class="cert-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <div class="section-header">
+                <h2>Arsenal Technique</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category" data-reveal="fade-right">
+                    <h3>&lt;Dev & Mobile /&gt;</h3>
+                    <ul class="tech-list">
+                        <li><b>Laravel (PHP)</b> : Développement Backend robuste</li>
+                        <li><b>Java</b> : Développement Mobile Avec java et Android studio</li>
+                        <li><b>JavaScript (ES6+)</b> : Dynamisme Frontend</li>
+                        <li><b>SQL / MySQL</b> : Gestion de données complexes</li>
+                        <li><b>HTML5 & CSS3</b> : Interfaces modernes</li>
+                    </ul>
+                </div>
+                <div class="skill-category" data-reveal="fade-left">
+                    <h3>{ Réseau & Sécu }</h3>
+                    <ul class="tech-list">
+                        <li><b>Packet Tracer</b> : Simulation architecture complexe</li>
+                        <li><b>Wireshark</b> : Analyse de trames & trafic réseau,analyse des log et rapports incidents</li>
+                        <li><b>Linux</b> : Administration système (Kali/Ubuntu)</li>
+                        <li><b>SOC / GRC</b> : Concepts de gouvernance et surveillance,Bonne connaissance des outils SIEM et des frameworks du NIST</li>
+                        <li><b>TCP/IP & OSI</b> : Maîtrise des couches protocolaires</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>Projets Phares</h2>
+            </div>
+
+            <div class="project-card" data-reveal="fade-up" data-reveal-delay="100">
+                <div class="project-top">
+                    <div class="folder">📂</div>
+                    <div class="project-links">
+                        <a href="#" title="Voir le code" class="project-link">🔗</a>
+                    </div>
+                </div>
+                <h3>App Gestion Événements</h3>
+                <p>
+                    Développement Fullstack d'une plateforme événementielle. Focus particulier sur la sécurité des données utilisateurs (hachage mots de passe, protection XSS/SQLi) et l'architecture MVC.
+                </p>
+                <div class="tech-stack">
+                    <span>Laravel</span>
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>Sécurité Web</span>
+                </div>
+                <div class="project-glow"></div>
+            </div>
+
+            <div class="project-card" data-reveal="fade-up" data-reveal-delay="200">
+                <div class="project-top">
+                    <div class="folder">🛡️</div>
+                    <div class="project-links">
+                        <a href="#" title="Voir le code" class="project-link">🔗</a>
+                    </div>
+                </div>
+                <h3>Système hiérarchique de partage de fichiers au sein d'un réseau d'entreprise</h3>
+                <p>
+                    Simulation du système de partage de fichiers au sein du réseau d'entreprise à travers la visualisation,la gestion des accès au dossiers et fichiers en fonction des droits utilisateurs et des départements de chaque employés.
+                </p>
+                <div class="tech-stack">
+                    <span>Virtualbox</span>
+                    <span>Ubuntu Linux</span>
+                    <span>Nano,Terminal</span>
+                    <span>Adresse IP, DHCP</span>
+                </div>
+                <div class="project-glow"></div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-box">
+            <p class="contact-label" data-reveal="fade-up">04. What's Next?</p>
+            <h2 data-reveal="fade-up" data-reveal-delay="100">Initialiser la Connexion</h2>
+            <p class="contact-desc" data-reveal="fade-up" data-reveal-delay="200">
+                Mon profil est taillé pour l'ingénierie. Je suis prêt à relever les défis de votre formation. Échangeons sur mon avenir au sein de votre école.
+            </p>
+            <a href="mailto:hountondjibilalemail@gmail.com" class="btn btn-primary" data-reveal="fade-up" data-reveal-delay="300">Me Contacter</a>
+        </section>
+
+        <footer>
+            <p>Conçu & Développé par HOUNTONDJI Stephen Bilal.</p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script defer src="script.js"></script>
+</body>
+</html>
